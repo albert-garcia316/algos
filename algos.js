@@ -228,3 +228,20 @@ function multiply(arr){
     return output;
 }
 console.log(multiply([1,2,3,4,5]))
+
+// 2/20/2019
+// find the lowest positive int missing from a given arr
+// done in linear time. The arr can have negatives and duplicates
+function lowestMissingNo(arr){
+    var dict = {};
+    for (var i = 0; i < arr.length; i++){
+        dict[arr[i]] = arr[i];
+    }
+    var t = 1;
+    while(t in dict){
+        t++;
+    }
+    return t;
+}
+console.log(lowestMissingNo([3,4,-1,1])) // return 2
+console.log(lowestMissingNo([2,1,0])) // return 3
