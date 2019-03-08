@@ -245,3 +245,111 @@ function lowestMissingNo(arr){
 }
 console.log(lowestMissingNo([3,4,-1,1])) // return 2
 console.log(lowestMissingNo([2,1,0])) // return 3
+
+// 2/22/2019
+// find greatest sum from a given arr without using successive numbers
+
+
+// 2/25/2019
+// Given an array of intergers 1-26, return all the possible decoded messages:
+// where a = 1 and z = 26
+// try to do this in one pass
+
+function codeBreaker(arr){
+    var dict = {1: "a", 2 : "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g", 8: "h", 9: "i", 10: "j", 11: "k", 12: "l", 13: "m", 14: "n", 15: "o", 16: "p", 17: "q", 18:  "r", 19: "s", 20: "t", 21: "u", 22: "v", 23: "w", 24: "x", 25: "y" , 26: "z"};
+    var output = [];
+    var count = 0;
+    for(var i = 0; i <arr.length - 1; i++){
+        if(arr[i] === 0){
+            continue;
+        }
+        if(arr[i] == 1 || arr[i] == 2){
+            count ++;
+            console.log(output.length);
+            if(output.length === 0){
+                output.push(dict[arr[i]]);
+                console.log(output, "current output");
+            } 
+            else{
+                  output[output.length - count] += dict[arr[i]];
+            }
+        }
+        // else{
+        //     if(output.length === 0){
+        //         output.push(dict[arr[i]]);
+        //     } 
+        //     else {
+        //         output[output.length - count] += dict[arr[i]];
+        //     }
+        // }
+    }
+    output[output.length - count] += dict[arr[arr.length - 1]];
+    return output;
+}
+console.log(codeBreaker([1,1,1]));
+
+
+
+function round(num){
+    var ones = 0;
+    var tenths = 0;
+    num *= 100;
+    console.log(num);
+    while(num > 100){
+      num -= 100;
+      ones += 100;
+    }
+    console.log(num, "after removing dollars");
+    while(num > 10){
+      num -= 10;
+      tenths += 10;
+    }
+    console.log(num, "after removing tenths")
+    console.log("ones =", ones, "tenths =", tenths);
+    if(num > 5){
+      num = 10;
+    }
+    else{
+      num = 5;
+    }
+    num = num + ones + tenths;
+    num /= 100;
+    console.log(num);
+  
+  
+  }
+  round(1.499)
+
+// str Combo
+// find all the combinations of letters of a given string
+function strCombo(str){
+    arr = [];
+    for(var i = 0; i <str.length; i++){
+        var temp_arr = str.split("");
+        console.log(temp_arr);
+        var temp_str = "";
+        var j = i + 1;
+        // while(j != i){
+        //     if(j > str.length - 1){
+        //         j = 0;
+        //     }
+        //     temp_str += temp_arr[j];
+        // }
+        // temp_str += temp_arr[i];
+        // arr.push(temp_str);
+        // console.log(arr);
+    }
+}
+strCombo("abc");
+
+// 3/8/2019 
+// using recursion given a num find the factorial of that number:
+function FirstFactorial(num) { 
+    if(num == 1){
+        return 1;
+    }
+    else {
+        return num * FirstFactorial(num - 1);
+    }
+}
+FirstFactorial(8);  
