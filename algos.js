@@ -354,3 +354,45 @@ function FirstFactorial(num) {
     }
 }
 FirstFactorial(6);  
+
+// 3/11/2019
+// Validate function
+// given a string of symbols ()[]{} check if it is in a valid format
+// as in no close before opening, and there is a close for every open
+function isValid(str){
+    var dict = {
+        "(" : 0,
+        ")" : 0,
+        "[" : 0,
+        "]" : 0,
+        "curlyO" : 0,
+        "curlyC" : 0,
+        "opens" : 0,
+        "closes" : 0 
+    }
+    for(var i = 0; i < str.length; i++){
+        if(str[i] == "{"){
+            dict.curlyO += 1;
+        }
+        if(str[i] == "}"){
+            dict.curlyC += 1;
+        }
+        else {
+            dict[str[i]] += 1;
+        }
+        if(dict[")"] > dict["("] || dict["]"] > dict["["] || dict.curlyC > dict.curlyO){
+            return false;
+        }
+        if(str[i] == "(" || str[i] == "[" || str[i] == "{"){
+            dict.opens += 1;
+        }
+        if(str[i] == ")" || str[i] == "]" || str[i] == "}"){
+            dict.closes += 1;
+        }
+        if((dict.opens - dict.closes) > (str.length - (i + 1))){
+            return false;
+        }
+    }
+    return true;
+}
+isValid("()[]{}")
