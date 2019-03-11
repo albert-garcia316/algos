@@ -343,7 +343,8 @@ function strCombo(str){
 strCombo("abc");
 
 // 3/8/2019 
-// using recursion given a num find the factorial of that number:
+// using recursion given a number find the factorial of that number:
+// example give 4 return 24
 function FirstFactorial(num) { 
     if(num == 1){
         return 1;
@@ -352,4 +353,4 @@ function FirstFactorial(num) {
         return num * FirstFactorial(num - 1);
     }
 }
-FirstFactorial(8);  
+FirstFactorial(6);  
