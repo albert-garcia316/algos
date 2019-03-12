@@ -396,3 +396,14 @@ function isValid(str){
     return true;
 }
 isValid("()[]{}")
+
+function simpleAdding(num){
+    var i = 1;
+    var sum = 0;
+    while(i <= num){
+        sum += i;
+        i++;
+    }
+    return sum;
+}
+console.log(simpleAdding(4));
