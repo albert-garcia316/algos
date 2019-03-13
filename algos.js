@@ -407,3 +407,69 @@ function simpleAdding(num){
     return sum;
 }
 console.log(simpleAdding(4));
+
+// 3/13/2019
+// Have the function EightQueens(strArr) read strArr which will be an array consisting of the locations of eight Queens on a standard 8x8 chess board with no other pieces on the board. The structure of strArr will be the following: ["(x,y)", "(x,y)", ...] where (x,y) represents the position of the current queen on the chessboard (x and y will both range from 1 to 8 where 1,1 is the bottom-left of the chessboard and 8,8 is the top-right). Your program should determine if all of the queens are placed in such a way where none of them are attacking each other. If this is true for the given input, return the string true otherwise return the first queen in the list that is attacking another piece in the same format it was provided. 
+
+// For example: if strArr is ["(2,1)", "(4,2)", "(6,3)", "(8,4)", "(3,5)", "(1,6)", "(7,7)", "(5,8)"] then your program should return the string true. The corresponding chessboard of queens for this input is below (taken from Wikipedia). 
+function eightQueens(arr){
+    var dict = {};
+    for(var i = 0; i < arr.length; i++){
+        dict[arr[i]] = arr[i];
+    }
+    for(var i = 0; i < arr.length - 1; i++){
+        var x = arr[i][1];
+        var y = arr[i][3];
+        for(var j = i+1; j< arr.length; j++){
+            if(arr[j][1] == x || arr[j][3] == y){
+                return arr[i];
+            }
+        }
+        x = parseInt(x);
+        y = parseInt(y);
+        // both increment
+        while(x <= 8 && y <= 8){
+            x++;
+            y++;
+            var temp = "(" + x + "," + y + ")";
+            if(temp in dict){
+                return arr[i];
+            } 
+        }
+        x = parseInt(arr[i][1]);
+        y = parseInt(arr[i][3]);
+        // both dec
+        while(x >= 1 && y >= 1){
+            x--;
+            y--;
+            var temp = "(" + x + "," + y + ")";
+            if(temp in dict){
+                return arr[i];
+            } 
+        }
+        x = parseInt(arr[i][1]);
+        y = parseInt(arr[i][3]);
+        // x inc and y dec
+        while(x <= 8 && y >= 1){
+            x++;
+            y--;
+            var temp = "(" + x + "," + y + ")";
+            if(temp in dict){
+                return arr[i];
+            } 
+        }
+        x = parseInt(arr[i][1]);
+        y = parseInt(arr[i][3]);
+        // x dec and y inc
+        while(x >= 1 && y <= 8){
+            x--;
+            y++;
+            var temp = "(" + x + "," + y + ")";
+            if(temp in dict){
+                return arr[i];
+            } 
+        }
+    }
+    return "true";
+}
+console.log(eightQueens(["(2,1)", "(4,2)", "(6,3)", "(8,4)", "(3,5)", "(1,6)", "(7,7)", "(5,8)"]));
