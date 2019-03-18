@@ -474,4 +474,21 @@ function eightQueens(arr){
 }
 console.log(eightQueens(["(2,1)", "(4,2)", "(6,3)", "(8,4)", "(3,5)", "(1,6)", "(7,7)", "(5,8)"]));
 
+// 3/15/2019
+// Community pool
+// find total amount of water that an arr can hold where values in arr are walls of the pools ex: [3,0,1,3,0,5] would hold 8 units of water. at arr[1] -> 3 units of water arr[2] -> 2 units arr[4] -> 3 units
+function comPool(arr){
+    var lw = arr[0];
+    var rw = 0;
+    var depth = 0;
+    var len = 0;
+    var water = 0;
+    for(var i = i; i <arr.length; i++){
+        if(arr[i] >= lw){
+            
+        }
+    }
+}
+
 // test test
+// test of new og
